@@ -27,7 +27,7 @@ const handlebarOptions = {
 
 transporter.use('compile', hbs(handlebarOptions));
 
-export const sendResetCode = async (email, code, name) => {
+const sendResetCode = async (email, code, name) => {
     await transporter.sendMail({
         from: '"TaskLock" <admin@tasklock.com>',
         to: email,
