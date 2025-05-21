@@ -1,8 +1,7 @@
-import express from 'express'
-import path from 'path'
-import nodemailer from 'nodemailer';
-import hbs from 'nodemailer-express-handlebars';
-import path from 'path';
+const express = require('express');
+const path = require('path');
+const nodemailer = require('nodemailer');
+const hbs = require('nodemailer-express-handlebars');
 
 const app = express();
 
