@@ -1,11 +1,12 @@
-const express = require('express');
-const path = require('path');
-const nodemailer = require('nodemailer');
-const hbs = require('nodemailer-express-handlebars');
+import express from 'express'
+import path from 'path'
+import nodemailer from 'nodemailer';
+import hbs from 'nodemailer-express-handlebars';
+import { config } from 'dotenv';
 
 const app = express();
 
-require('dotenv').config();
+config();
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
