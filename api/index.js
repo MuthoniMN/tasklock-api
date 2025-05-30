@@ -36,12 +36,13 @@ const handlebarOptions = {
 transporter.use('compile', hbs(handlebarOptions));
 
 const sendResetCode = async (email, code, name) => {
+    const codeArr = code.split('');
     await transporter.sendMail({
         from: '"TaskLock" <admin@tasklock.com>',
         to: email,
         subject: 'Forgot Password: Verification Code',
         template: 'forgotPassword',
-        context: { name, code },
+        context: { name, codeArr },
     });
 };
 
