@@ -13,6 +13,7 @@ const app = express();
 
 config();
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'images')));
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -46,7 +47,11 @@ const sendResetCode = async (email, code, name) => {
 
 app.get('/', (req, res) => {
     return res.send('Welcome to TaskLock API');
-})
+});
+
+app.get("/static", (req, res) => {
+    res.render("static");
+});
 
 app.post('/api/forgot-password', async (req, res) => {
     try {
