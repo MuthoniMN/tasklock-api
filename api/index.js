@@ -7,6 +7,7 @@ import { config } from 'dotenv';
 const app = express();
 
 config();
+app.use(express.json());
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
