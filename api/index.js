@@ -1,8 +1,13 @@
 import express from 'express'
 import path from 'path'
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 import nodemailer from 'nodemailer';
 import hbs from 'nodemailer-express-handlebars';
 import { config } from 'dotenv';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 
@@ -20,10 +25,10 @@ const transporter = nodemailer.createTransport({
 const handlebarOptions = {
     viewEngine: {
         extName: '.hbs',
-        partialsDir: path.resolve('../emails'),
+        partialsDir: path.resolve(__dirname, '../emails'),
         defaultLayout: false,
     },
-    viewPath: path.resolve('../emails'),
+    viewPath: path.resolve(__dirname, '../emails'),
     extName: '.hbs',
 };
 
